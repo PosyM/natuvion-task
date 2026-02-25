@@ -19,9 +19,9 @@ export const employeesMock: Employee[] = [
   },
   {
     id: 3,
-    name: '',
-    role: 'Senior Software Engineer',
-    email: 'sarah.johnson@company.com',
+    name: 'Emily Rodriquez',
+    role: 'UX Designer',
+    email: 'emily.rodriquez@company.com',
     status: 'active',
     avatar: '',
   },

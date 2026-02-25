@@ -5,9 +5,9 @@ import { employeesMock } from '../../mocks/employees.mock';
 @Component({
   selector: 'nat-employee-list',
   imports: [],
-  templateUrl: './employee-list.html',
-  styleUrl: './employee-list.scss',
+  templateUrl: './employee-list.component.html',
+  styleUrl: './employee-list.component.scss',
 })
-export class EmployeeList {
-  @Input() employees: Employee[] = employeesMock;
+export class EmployeeListComponent {
+  @Input() employees: Employee[] | null = employeesMock;
 }
