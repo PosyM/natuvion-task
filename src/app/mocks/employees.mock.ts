@@ -1,4 +1,4 @@
-import {Employee} from '../models/employee.model';
+import { Employee } from '../models/employee.model';
 
 export const employeesMock: Employee[] = [
   {
@@ -7,7 +7,7 @@ export const employeesMock: Employee[] = [
     role: 'Senior Software Engineer',
     email: 'sarah.johnson@company.com',
     status: 'active',
-    avatar: ''
+    avatar: '',
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const employeesMock: Employee[] = [
     role: 'Product Manager',
     email: 'michael.chen@company.com',
     status: 'active',
-    avatar: ''
+    avatar: '',
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const employeesMock: Employee[] = [
     role: 'Senior Software Engineer',
     email: 'sarah.johnson@company.com',
     status: 'active',
-    avatar: ''
+    avatar: '',
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const employeesMock: Employee[] = [
     role: 'Senior Software Engineer',
     email: 'sarah.johnson@company.com',
     status: 'active',
-    avatar: ''
+    avatar: '',
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const employeesMock: Employee[] = [
     role: 'Senior Software Engineer',
     email: 'sarah.johnson@company.com',
     status: 'active',
-    avatar: ''
+    avatar: '',
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ export const employeesMock: Employee[] = [
     role: 'Senior Software Engineer',
     email: 'sarah.johnson@company.com',
     status: 'active',
-    avatar: ''
+    avatar: '',
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ export const employeesMock: Employee[] = [
     role: 'Senior Software Engineer',
     email: 'sarah.johnson@company.com',
     status: 'active',
-    avatar: ''
+    avatar: '',
   },
   {
     id: 8,
@@ -63,6 +63,6 @@ export const employeesMock: Employee[] = [
     role: 'Senior Software Engineer',
     email: 'sarah.johnson@company.com',
     status: 'active',
-    avatar: ''
+    avatar: '',
   },
-]
+];

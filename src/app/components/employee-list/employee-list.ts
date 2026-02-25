@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {Employee} from '../../models/employee.model';
-import {employeesMock} from '../../mocks/employees.mock';
+import { Component, Input } from '@angular/core';
+import { Employee } from '../../models/employee.model';
+import { employeesMock } from '../../mocks/employees.mock';
 
 @Component({
   selector: 'nat-employee-list',
