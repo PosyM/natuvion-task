@@ -28,7 +28,7 @@ export class EmployeesService {
     }),
   );
 
-  // Methods to update state
+  // Methods to update search
   setSearchTerm(term: string) {
     this._searchTerm$.next(term);
   }

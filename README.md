@@ -24,9 +24,9 @@ This repository contains the implementation of the employee management task, bui
 The application is designed with an emphasis on **Smart/Dumb (Container/Presentational)** architecture and **Service-based communication**.
 
 ### Feature:
-- **`EmployeeListComponent` (Smart)**:
+- **`AppComponent` (Smart)**:
   - Responsible for loading data via `EmployeesService`.
-  - Manages the state of the list (loading, error, data).
+  - Manages the state of the list .
   - Reacts to events emitted by child components (filter changes, edit actions).
 
 - **`EmployeeFilterComponent` (Dumb)**:
@@ -34,14 +34,13 @@ The application is designed with an emphasis on **Smart/Dumb (Container/Presenta
   - Displays search inputs and status dropdowns.
   - Emits filter values to the parent (`@Output() filterChange`).
 
-- **`EmployeeTableComponent` (Dumb)**:
+- **`EmployeeListComponent` (Dumb)**:
   - Receives the list of employees as input (`@Input() employees`).
   - Handles sorting logic visually and emits sort events.
   - Emits actions like "Edit" or "Delete" to the parent (`@Output() edit`, `@Output() delete`).
 
 - **`EmployeeFormComponent` (Smart)**:
   - Form for adding/editing an employee.
-  - Displayed dynamically inside `ModalComponent`.
   - Uses Reactive Forms for validation and handles the save logic directly with the service.
 
 ### Services
