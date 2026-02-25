@@ -2,11 +2,18 @@ export interface Employee {
   id: number;
   name: string;
   email: string;
-  role: string;
+  role: EmployeeRole;
   avatar: string;
-  status: 'active' | 'inactive';
+  active: boolean;
 }
 
-// export enum EmployeeRole {
-//
-// }
+export enum EmployeeRole {
+  SeniorSoftwareEngineer = 'Senior Software Engineer',
+  PruductManager = 'Pruduct Manager',
+  UXDesigner = 'UX Designer',
+  DevOpsEngineer = 'DevOps Engineer',
+  MarketingDirector = 'Marketing Director',
+  SoftwareEngineer = 'Software Engineer',
+  HRManager = 'HR Manager',
+  SalesRepresentative = 'Sales Representative',
+}

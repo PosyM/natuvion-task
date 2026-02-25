@@ -10,5 +10,5 @@ export class EmployeesService {
   private readonly employees$$ = new BehaviorSubject<Employee[]>(employeesMock);
   employees$ = this.employees$$.asObservable();
 
-  public sortEmployees(): void {}
+  public sortEmployees(column: keyof Employee): void {}
 }
