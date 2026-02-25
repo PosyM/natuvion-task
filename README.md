@@ -16,8 +16,8 @@ This repository contains the implementation of the employee management task, bui
 **Main CSS Framework:** **Tailwind CSS**
 - **Reason:** Utility-first approach allows for rapid styling directly in HTML without switching files. It provides a consistent design system and is extremely lightweight in production (removes unused CSS).
 
-**Component Library:** **Flowbite** (headless/minimal JS)
-- **Reason:** Used for interactive elements like Modals, Badge statuses, and form elements. These are fully compatible with Tailwind but do not burden the application like Angular Material.
+**Component Library:** **Flowbite**
+- **Reason:** Used for interactive elements like Modals, and form elements. These are fully compatible with Tailwind but do not burden the application like Angular Material.
 
 ## 3. Component Structure Proposal
 
