@@ -14,14 +14,7 @@
     </div>
 
     <!-- Add Employee Button -->
-    <div class="mt-4 sm:mt-0">
-      <button
-        type="button"
-        class="inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto bg-black text-white hover:bg-gray-800 focus:ring-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-200 dark:focus:ring-white"
-      >
-        Add Employee
-      </button>
-    </div>
+    <button flowbiteButton (click)="openCreateFormModal()">Add Employee</button>
   </div>
 
   <!-- TABLE SECTION -->
@@ -30,6 +23,8 @@
     <nat-employee-list
       [employees]="this.employees$ | async"
       (sortTable)="sortTable($event)"
+      (editAction)="openEditFormModal($event)"
     ></nat-employee-list>
   </section>
 </main>
+<nat-employee-form (onFormSubmit)="onEmployeeFormSubmit($event)"></nat-employee-form>
