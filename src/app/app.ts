@@ -55,7 +55,10 @@ export class App {
     }
     if (!('id' in FormData)) {
       this.employeesService.addEmployee(FormData);
-      console.log(FormData);
     }
+  }
+
+  deleteEmployees(employees: number[]): void {
+    this.employeesService.deleteEmployee(employees);
   }
 }

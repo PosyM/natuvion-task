@@ -59,9 +59,11 @@ export class EmployeesService {
   /**
    * Deletes an employee by ID.
    */
-  deleteEmployee(id: number) {
+  deleteEmployee(ids: number[]) {
     const current = this._allEmployees$.getValue();
-    this._allEmployees$.next(current.filter((e) => e.id !== id));
+    // Filter out any employee whose ID is in the list of IDs to delete
+    const updated = current.filter((e) => !ids.includes(e.id));
+    this._allEmployees$.next(updated);
   }
 
   // State to track sorting

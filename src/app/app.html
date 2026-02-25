@@ -24,6 +24,7 @@
       [employees]="(employees$ | async) ?? []"
       (sortTable)="sortTable($event)"
       (editAction)="openEditFormModal($event)"
+      (deleteSelected)="deleteEmployees($event)"
     ></nat-employee-list>
   </section>
 </main>

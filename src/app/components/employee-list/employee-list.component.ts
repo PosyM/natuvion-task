@@ -13,6 +13,19 @@ export class EmployeeListComponent {
   @Input() employees: Employee[] = [];
   @Output() sortTable = new EventEmitter<keyof Employee>();
   @Output() editAction = new EventEmitter<Employee>();
+  @Output() deleteSelected = new EventEmitter<number[]>();
+
+  selectedIds = new Set<number>();
+
+  // Handle checkbox toggle
+  toggleSelection(id: number, event: Event): void {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    if (isChecked) {
+      this.selectedIds.add(id);
+    } else {
+      this.selectedIds.delete(id);
+    }
+  }
 
   onColumnHeaderClick(column: keyof Employee): void {
     this.sortTable.emit(column);
@@ -20,5 +33,14 @@ export class EmployeeListComponent {
 
   onEditActionClick(employee: Employee): void {
     this.editAction.emit(employee);
+  }
+
+  // Emit selected IDs for deletion
+  onDeleteSelected(): void {
+    if (this.selectedIds.size > 0) {
+      this.deleteSelected.emit(Array.from(this.selectedIds));
+      // Reset selection after delete
+      this.selectedIds.clear();
+    }
   }
 }
