@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, combineLatest, map } from 'rxjs';
 import { Employee } from '../../models/employee.model';
 import { employeesMock } from '../../mocks/employees.mock';
 
@@ -7,9 +7,62 @@ import { employeesMock } from '../../mocks/employees.mock';
   providedIn: 'root',
 })
 export class EmployeesService {
-  // Employees state
-  private readonly employees$$ = new BehaviorSubject<Employee[]>(employeesMock);
-  employees$ = this.employees$$.asObservable();
+  //  Raw Data Source
+  private readonly _allEmployees$ = new BehaviorSubject<Employee[]>(employeesMock);
+
+  //  Search Filter Source
+  private readonly _searchTerm$ = new BehaviorSubject<string>('');
+
+  //  Combined Stream
+  readonly employees$ = combineLatest([this._allEmployees$, this._searchTerm$]).pipe(
+    map(([employees, term]) => {
+      if (!term) return employees;
+
+      const lowerTerm = term.toLowerCase();
+      return employees.filter(
+        (emp) =>
+          emp.name.toLowerCase().includes(lowerTerm) ||
+          emp.email.toLowerCase().includes(lowerTerm) ||
+          emp.role.toLowerCase().includes(lowerTerm),
+      );
+    }),
+  );
+
+  // Methods to update state
+  setSearchTerm(term: string) {
+    this._searchTerm$.next(term);
+  }
+
+  /**
+   * Adds a new employee to the list.
+   * Generates a new ID based on the max existing ID.
+   */
+  addEmployee(employee: Omit<Employee, 'id'>) {
+    const current = this._allEmployees$.getValue();
+    const newId = current.length ? Math.max(...current.map((e) => e.id)) + 1 : 1;
+    this._allEmployees$.next([...current, { ...employee, id: newId }]);
+  }
+
+  /**
+   * Updates an existing employee by ID.
+   */
+  updateEmployee(updatedEmployee: Employee) {
+    const current = this._allEmployees$.getValue();
+    const index = current.findIndex((e) => e.id === updatedEmployee.id);
+    if (index !== -1) {
+      const updated = [...current];
+      updated[index] = updatedEmployee;
+      this._allEmployees$.next(updated);
+    }
+  }
+
+  /**
+   * Deletes an employee by ID.
+   */
+  deleteEmployee(id: number) {
+    const current = this._allEmployees$.getValue();
+    this._allEmployees$.next(current.filter((e) => e.id !== id));
+  }
 
   // State to track sorting
   private lastSortColumn: keyof Employee | null = null;
@@ -33,7 +86,7 @@ export class EmployeesService {
     this.lastSortDirection = direction;
 
     //  Get current values (avoiding mutating original state)
-    const currentEmployees = [...this.employees$$.getValue()];
+    const currentEmployees = [...this._allEmployees$.getValue()];
 
     // Perform the sort
     currentEmployees.sort((a, b) => {
@@ -69,47 +122,6 @@ export class EmployeesService {
     });
 
     // Emit the new sorted array
-    this.employees$$.next(currentEmployees);
-  }
-
-  /**
-   * Adds a new employee to the list.
-   * Generates a new ID based on the max existing ID.
-   */
-  addEmployee(employee: Omit<Employee, 'id'>): void {
-    const currentEmployees = this.employees$$.getValue();
-
-    // Generate new ID (Mock backend logic)
-    const newId =
-      currentEmployees.length > 0 ? Math.max(...currentEmployees.map((e) => e.id)) + 1 : 1;
-
-    const newEmployee: Employee = { ...employee, id: newId };
-
-    // Update state immutably
-    this.employees$$.next([...currentEmployees, newEmployee]);
-  }
-
-  /**
-   * Updates an existing employee by ID.
-   */
-  updateEmployee(updatedEmployee: Employee): void {
-    const currentEmployees = this.employees$$.getValue();
-
-    const newEmployees = currentEmployees.map((emp) =>
-      emp.id === updatedEmployee.id ? updatedEmployee : emp,
-    );
-
-    this.employees$$.next(newEmployees);
-  }
-
-  /**
-   * Deletes an employee by ID.
-   */
-  deleteEmployee(id: number): void {
-    const currentEmployees = this.employees$$.getValue();
-
-    const filteredEmployees = currentEmployees.filter((emp) => emp.id !== id);
-
-    this.employees$$.next(filteredEmployees);
+    this._allEmployees$.next(currentEmployees);
   }
 }

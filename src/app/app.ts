@@ -3,7 +3,7 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeesService } from './services/employees/employees.service';
 import { AsyncPipe } from '@angular/common';
 import { Employee } from './models/employee.model';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { Button } from 'flowbite-angular/button';
 import { EmployeeListFilterComponent } from './components/employee-list-filter/employee-list-filter.component';

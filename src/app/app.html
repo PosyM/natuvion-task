@@ -21,7 +21,7 @@
   <section class="mt-8">
     <nat-employee-list-filter></nat-employee-list-filter>
     <nat-employee-list
-      [employees]="this.employees$ | async"
+      [employees]="(employees$ | async) ?? []"
       (sortTable)="sortTable($event)"
       (editAction)="openEditFormModal($event)"
     ></nat-employee-list>
