@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
-import { EmployeesService } from './services/employees.service';
+import { EmployeesService } from './services/employees/employees.service';
 import { AsyncPipe } from '@angular/common';
 import { Employee } from './models/employee.model';
 import { Observable } from 'rxjs';
@@ -21,7 +21,7 @@ export class App {
   }
 
   sortTable(column: keyof Employee): void {
-    console.log('sort Table, column:', column);
+    this.employeesService.sortEmployees(column);
   }
 
   filterTable(data: unknown): void {

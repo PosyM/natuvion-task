@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Employee } from '../../models/employee.model';
 import { employeesMock } from '../../mocks/employees.mock';
 import { NgClass } from '@angular/common';
@@ -11,4 +11,9 @@ import { NgClass } from '@angular/common';
 })
 export class EmployeeListComponent {
   @Input() employees: Employee[] | null = employeesMock;
+  @Output() sortTable = new EventEmitter<keyof Employee>();
+
+  onColumnHeaderClick(column: keyof Employee): void {
+    this.sortTable.emit(column);
+  }
 }

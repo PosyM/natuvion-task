@@ -13,7 +13,12 @@
           </div>
         </th>
         <!-- Name Header -->
-        <th scope="col" class="px-6 py-3 cursor-pointer hover:bg-gray-100 transition-colors">
+        <th
+          scope="col"
+          class="px-6 py-3 cursor-pointer hover:bg-gray-100 transition-colors"
+          (click)="onColumnHeaderClick('name')"
+          )
+        >
           <div class="flex items-center gap-2">
             Name
             <svg
@@ -34,7 +39,11 @@
         </th>
 
         <!-- Role Header -->
-        <th scope="col" class="px-6 py-3 cursor-pointer hover:bg-gray-100 transition-colors">
+        <th
+          scope="col"
+          class="px-6 py-3 cursor-pointer hover:bg-gray-100 transition-colors"
+          (click)="onColumnHeaderClick('role')"
+        >
           <div class="flex items-center gap-2">
             Role
             <svg
@@ -55,7 +64,11 @@
         </th>
 
         <!-- Email Header -->
-        <th scope="col" class="px-6 py-3 cursor-pointer hover:bg-gray-100 transition-colors">
+        <th
+          scope="col"
+          class="px-6 py-3 cursor-pointer hover:bg-gray-100 transition-colors"
+          (click)="onColumnHeaderClick('email')"
+        >
           <div class="flex items-center gap-2">
             Email
             <svg
@@ -76,7 +89,11 @@
         </th>
 
         <!-- Status Header -->
-        <th scope="col" class="px-6 py-3 cursor-pointer hover:bg-gray-100 transition-colors">
+        <th
+          scope="col"
+          class="px-6 py-3 cursor-pointer hover:bg-gray-100 transition-colors"
+          (click)="onColumnHeaderClick('active')"
+        >
           <div class="flex items-center gap-2">
             Status
             <svg
@@ -118,15 +135,10 @@
           </td>
 
           <!-- Name Column with Avatar -->
-          <td class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-            <img
-              class="w-10 h-10 rounded-full"
-              [src]="employee.avatar"
-              [alt]="employee.name + ' image'"
-            />
-            <div class="pl-3 text-base font-semibold">
-              {{ employee.name }}
-            </div>
+          <td
+            class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white font-semibold"
+          >
+            {{ employee.name }}
           </td>
 
           <!-- role -->

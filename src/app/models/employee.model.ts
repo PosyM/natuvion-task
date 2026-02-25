@@ -3,13 +3,12 @@ export interface Employee {
   name: string;
   email: string;
   role: EmployeeRole;
-  avatar: string;
   active: boolean;
 }
 
 export enum EmployeeRole {
   SeniorSoftwareEngineer = 'Senior Software Engineer',
-  PruductManager = 'Pruduct Manager',
+  ProductManager = 'Pruduct Manager',
   UXDesigner = 'UX Designer',
   DevOpsEngineer = 'DevOps Engineer',
   MarketingDirector = 'Marketing Director',

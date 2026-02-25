@@ -7,15 +7,13 @@ export const employeesMock: Employee[] = [
     role: EmployeeRole.SeniorSoftwareEngineer,
     email: 'sarah.johnson@company.com',
     active: true,
-    avatar: '',
   },
   {
     id: 2,
     name: 'Michael Chen',
-    role: EmployeeRole.PruductManager,
+    role: EmployeeRole.ProductManager,
     email: 'michael.chen@company.com',
     active: true,
-    avatar: '',
   },
   {
     id: 3,
@@ -23,7 +21,6 @@ export const employeesMock: Employee[] = [
     role: EmployeeRole.UXDesigner,
     email: 'emily.rodriquez@company.com',
     active: true,
-    avatar: '',
   },
   {
     id: 4,
@@ -31,7 +28,6 @@ export const employeesMock: Employee[] = [
     role: EmployeeRole.DevOpsEngineer,
     email: 'sarah.johnson@company.com',
     active: false,
-    avatar: '',
   },
   {
     id: 5,
@@ -39,7 +35,6 @@ export const employeesMock: Employee[] = [
     role: EmployeeRole.MarketingDirector,
     email: 'lisa.anderson@company.com',
     active: true,
-    avatar: '',
   },
   {
     id: 6,
@@ -47,7 +42,6 @@ export const employeesMock: Employee[] = [
     role: EmployeeRole.SoftwareEngineer,
     email: 'david.kim@company.com',
     active: true,
-    avatar: '',
   },
   {
     id: 7,
@@ -55,7 +49,6 @@ export const employeesMock: Employee[] = [
     role: EmployeeRole.HRManager,
     email: 'amanda.taylor@company.com',
     active: true,
-    avatar: '',
   },
   {
     id: 8,
@@ -63,6 +56,5 @@ export const employeesMock: Employee[] = [
     role: EmployeeRole.SalesRepresentative,
     email: 'robert.martinez@company.com',
     active: false,
-    avatar: '',
   },
 ];
