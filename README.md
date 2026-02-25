@@ -19,17 +19,9 @@ This repository contains the implementation of the employee management task, bui
 **Component Library:** **Flowbite** (headless/minimal JS)
 - **Reason:** Used for interactive elements like Modals, Badge statuses, and form elements. These are fully compatible with Tailwind but do not burden the application like Angular Material.
 
-**Icons:** **Heroicons / Custom SVG Registry**
-- **Reason:** Instead of importing an entire icon library (FontAwesome), optimized SVGs are used directly in code or via a lightweight `IconComponent` wrapper, ensuring zero impact on bundle size.
-
 ## 3. Component Structure Proposal
 
 The application is designed with an emphasis on **Smart/Dumb (Container/Presentational)** architecture and **Service-based communication**.
-
-### Core Components
-- **`AppComponent`**: The main layout shell containing the Header and `router-outlet`.
-- **`HeaderComponent`**: Contains the logo and theme toggle (Dark/Light mode).
-- **`ModalComponent`**: A global wrapper for modal windows. It is placed at the application root and controlled via a service (`ModalService`), allowing windows to be opened from any part of the application without prop-drilling.
 
 ### Feature:
 - **`EmployeeListComponent` (Smart)**:
