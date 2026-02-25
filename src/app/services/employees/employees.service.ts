@@ -11,7 +11,7 @@ export class EmployeesService {
   private readonly employees$$ = new BehaviorSubject<Employee[]>(employeesMock);
   employees$ = this.employees$$.asObservable();
 
-  // State to track current sort
+  // State to track sorting
   private lastSortColumn: keyof Employee | null = null;
   private lastSortDirection: 'asc' | 'desc' = 'asc';
 
@@ -40,7 +40,7 @@ export class EmployeesService {
       const valueA = a[column];
       const valueB = b[column];
 
-      // Handle String (Name, Email, Role, Avatar)
+      // Handle String (Name, Email, Role)
       if (typeof valueA === 'string' && typeof valueB === 'string') {
         return direction === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
       }
@@ -52,7 +52,6 @@ export class EmployeesService {
 
       // Handle Boolean (Active)
       if (typeof valueA === 'boolean' && typeof valueB === 'boolean') {
-        // false comes before true in 'asc' usually (0 vs 1)
         return direction === 'desc'
           ? valueA === valueB
             ? 0
@@ -71,5 +70,46 @@ export class EmployeesService {
 
     // Emit the new sorted array
     this.employees$$.next(currentEmployees);
+  }
+
+  /**
+   * Adds a new employee to the list.
+   * Generates a new ID based on the max existing ID.
+   */
+  addEmployee(employee: Omit<Employee, 'id'>): void {
+    const currentEmployees = this.employees$$.getValue();
+
+    // Generate new ID (Mock backend logic)
+    const newId =
+      currentEmployees.length > 0 ? Math.max(...currentEmployees.map((e) => e.id)) + 1 : 1;
+
+    const newEmployee: Employee = { ...employee, id: newId };
+
+    // Update state immutably
+    this.employees$$.next([...currentEmployees, newEmployee]);
+  }
+
+  /**
+   * Updates an existing employee by ID.
+   */
+  updateEmployee(updatedEmployee: Employee): void {
+    const currentEmployees = this.employees$$.getValue();
+
+    const newEmployees = currentEmployees.map((emp) =>
+      emp.id === updatedEmployee.id ? updatedEmployee : emp,
+    );
+
+    this.employees$$.next(newEmployees);
+  }
+
+  /**
+   * Deletes an employee by ID.
+   */
+  deleteEmployee(id: number): void {
+    const currentEmployees = this.employees$$.getValue();
+
+    const filteredEmployees = currentEmployees.filter((emp) => emp.id !== id);
+
+    this.employees$$.next(filteredEmployees);
   }
 }
