@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { EmployeesService } from '../../services/employees/employees.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'nat-employee-list-filter',
@@ -8,10 +7,10 @@ import { EmployeesService } from '../../services/employees/employees.service';
   styleUrl: './employee-list-filter.component.scss',
 })
 export class EmployeeListFilterComponent {
-  constructor(private employeeService: EmployeesService) {}
+  @Output() search = new EventEmitter<string>();
 
   onSearch(event: Event) {
     const term = (event.target as HTMLInputElement).value;
-    this.employeeService.setSearchTerm(term);
+    this.search.emit(term);
   }
 }

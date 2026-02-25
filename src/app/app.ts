@@ -37,8 +37,8 @@ export class App {
     this.employeesService.sortEmployees(column);
   }
 
-  filterTable(data: unknown): void {
-    console.log('filter Table, data:', data);
+  onSearch(term: string): void {
+    this.employeesService.setSearchTerm(term);
   }
 
   openCreateFormModal(): void {

@@ -19,7 +19,7 @@
 
   <!-- TABLE SECTION -->
   <section class="mt-8">
-    <nat-employee-list-filter></nat-employee-list-filter>
+    <nat-employee-list-filter (search)="onSearch($event)"></nat-employee-list-filter>
     <nat-employee-list
       [employees]="(employees$ | async) ?? []"
       (sortTable)="sortTable($event)"
