@@ -1,0 +1,68 @@
+import {Employee} from '../models/employee.model';
+
+export const employeesMock: Employee[] = [
+  {
+    id: 1,
+    name: 'Sarah johnson',
+    role: 'Senior Software Engineer',
+    email: 'sarah.johnson@company.com',
+    status: 'active',
+    avatar: ''
+  },
+  {
+    id: 2,
+    name: 'Michael Chen',
+    role: 'Product Manager',
+    email: 'michael.chen@company.com',
+    status: 'active',
+    avatar: ''
+  },
+  {
+    id: 3,
+    name: '',
+    role: 'Senior Software Engineer',
+    email: 'sarah.johnson@company.com',
+    status: 'active',
+    avatar: ''
+  },
+  {
+    id: 4,
+    name: 'Sarah johnson',
+    role: 'Senior Software Engineer',
+    email: 'sarah.johnson@company.com',
+    status: 'active',
+    avatar: ''
+  },
+  {
+    id: 5,
+    name: 'Sarah johnson',
+    role: 'Senior Software Engineer',
+    email: 'sarah.johnson@company.com',
+    status: 'active',
+    avatar: ''
+  },
+  {
+    id: 6,
+    name: 'Sarah johnson',
+    role: 'Senior Software Engineer',
+    email: 'sarah.johnson@company.com',
+    status: 'active',
+    avatar: ''
+  },
+  {
+    id: 7,
+    name: 'Sarah johnson',
+    role: 'Senior Software Engineer',
+    email: 'sarah.johnson@company.com',
+    status: 'active',
+    avatar: ''
+  },
+  {
+    id: 8,
+    name: 'Sarah johnson',
+    role: 'Senior Software Engineer',
+    email: 'sarah.johnson@company.com',
+    status: 'active',
+    avatar: ''
+  },
+]
