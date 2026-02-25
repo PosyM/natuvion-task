@@ -4,7 +4,7 @@ This repository contains the implementation of the employee management task, bui
 
 ## 1. Selected Angular Version and Reasoning
 
-**Version:** Angular 17+ 
+**Version:** Angular 21+ 
 
 **Reasoning:**
 - **Standalone Components:** Removes `NgModule` boilerplate, simplifying the application structure and speeding up development.
